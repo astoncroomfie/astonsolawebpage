@@ -1,0 +1,911 @@
+/*////////////////// GENERAL SETTINGS ////////////////////*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  background-color: #F3E1C1;
+  text-align: center;
+  color: #000000;
+}
+
+p.bigtext {
+  font-size: 23px
+}
+
+header {
+  background-color: #644b39;
+  padding: 1em 0;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+h1 {
+  margin: 0;
+  color: #000000;
+}
+
+h2 {
+  text-align: center;
+  margin: 0.5em 0;
+}
+
+h2.nopadding {
+  text-align: center;
+  margin: 0em 0;
+}
+
+
+main {
+  padding: 0;
+}
+
+/* Flexbox container for centering */
+.container {
+  display: flex;
+  justify-content: center;   /* Center horizontally */
+  align-items: center;       /* Center vertically */
+  flex-wrap: wrap;            /* Allow wrapping if needed */
+  height: 100vh;              /* Optional: Makes the container take up the full viewport height */
+}
+
+/* Optionally style the audio element itself */
+audio {
+  padding: 0em;
+  margin: 10px;              /* Space between the audio elements */
+}
+
+
+
+/* Navigation */ 
+nav {
+  margin-top: 1em;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000000;
+  padding: 0.5em 1em;
+  margin: 0 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+nav a:hover {
+  background-color: #594333;
+}
+
+/* Albums Page */
+#albums {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0;
+  margin-top: 0;
+  width: 100%;
+  padding: 0 1em;
+}
+
+/* Individual Album Group */
+.album-group {
+  width: 48%;
+  padding: 0;
+  text-align: center;
+  margin-bottom: 0.75em;
+}
+
+/* Album Styles */
+.album {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+  transition: box-shadow 0.3s, transform 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.album:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.album img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.album h3 {
+  margin-top: 0.5em;
+}
+
+.album p {
+  margin-bottom: 0.5em;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 1em 0;
+  background-color: #644b39;
+  margin-top: 2em;
+}
+
+/* Responsive Layout for Mobile */
+#albums {
+  display: flex;
+  justify-content: center; /* Center albums on the row */
+  gap: 1em; /* Equal space between albums */
+  flex-wrap: wrap; /* Allow wrapping when there are fewer than 2 albums */
+}
+
+.album-group {
+  flex: 1 1 calc(50% - 1em); /* Default to 2 items per row */
+  box-sizing: border-box; /* Prevent overflow */
+  max-width: calc(50% - 1em); /* Make sure each item takes up 50% of the row */
+}
+
+/* Adjust when there is 1 album */
+#albums:has(.album-group:nth-child(1)) {
+  justify-content: center; /* Center albums when there is 1 */
+}
+
+/* Desktop Layout (4 albums per row) */
+@media (min-width: 1024px) {
+  #albums {
+    display: flex;
+    justify-content: center; /* Center albums on the row */
+    gap: 1em; /* Equal space between albums */
+    flex-wrap: wrap; /* Allow wrapping when there are fewer than 4 albums */
+  }
+
+  .album-group {
+    flex: 1 1 calc(25% - 1em); /* Default to 4 items per row */
+    box-sizing: border-box; /* Prevent overflow */
+    max-width: calc(25% - 1em); /* Make sure each item takes up 25% of the row */
+  }
+
+  /* Adjust when there are 3 albums */
+  #albums:has(.album-group:nth-child(3)) {
+    justify-content: center; /* Center albums when there are 3 */
+  }
+
+  /* Adjust when there are 2 albums */
+  #albums:has(.album-group:nth-child(2)) {
+    justify-content: center; /* Center albums when there are 2 */
+  }
+
+  /* Adjust when there is 1 album */
+  #albums:has(.album-group:nth-child(1)) {
+    justify-content: center; /* Center albums when there is 1 */
+  }
+}
+
+
+
+/* Image Styling for Album Names */
+img.album-name {
+  padding: 0em;
+  max-width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  img.album-name {
+    max-width: 15%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  img.album-name {
+    max-width: 50%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+img.update-pics {
+  padding: 0.5em;
+  max-width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+@media (min-width: 1024px) {
+  img.update-pics {
+    max-width: 30%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  img.update-pics {
+    max-width: 70%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+hr {
+  border: 0;
+  border-top: 2px solid #000000;
+  margin: 20px auto;
+  width: 97%;
+}
+
+/*//////////////////// LOST PAGE ////////////////////////*/
+
+h2.lost-page {
+  margin: 0;
+}
+
+h1.lost-page {
+  color: #20281a;
+}
+
+h2.lost-page {
+  color: #303c28;
+}
+
+h3.lost-page {
+  color: #303c28;
+}
+
+body.lost-page header {
+  background-color: #4a653c;
+}
+
+body.lost-page footer {
+  background-color: #4a653c;
+}
+
+nav.lost-page a:hover {
+  background-color: #405b32;
+}
+
+nav.lost-page a {
+  text-decoration: none;
+  color: #1a2216;
+  padding: 0.5em 1em;
+  margin: 0 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+body.lost-page {
+  background-color: #919f8a;
+  color: #212c1b;
+}
+
+/* Image Styling for Lost Page */
+img.lost-page {
+  padding: 1em;
+  max-width: 100%;
+  height: auto;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  img.lost-page {
+    max-width: 40%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  img.lost-page {
+    max-width: 100%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+/* Carousel Styles */
+.carousel-container {
+  position: relative;
+  width: 60%;
+  max-width: 600px;
+  margin: 1em auto; /* Center carousel horizontally */
+  overflow: hidden; /* Hide overflow for smooth transitions */
+  display: block;
+  border-radius: 5px;
+  border: 2px solid #2d3c25;
+}
+
+body.lost-page .carousel-container {
+  border: 2px solid #2d3c25; /* Keep the border color for lost-page */
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+ /* Smooth transition for the sliding effect */
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 0.3em;
+  cursor: pointer;
+  font-size: 2em;
+  z-index: 10;
+  border-radius: 25px;
+}
+
+.prev-btn {
+  left: 5px;
+}
+
+.next-btn {
+  right: 5px;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    width: 90%;
+  }
+}
+
+/* Carousel Button Disabled State */
+button[disabled] {
+  visibility: hidden; /* Hide the disabled button */
+  pointer-events: none; /* Prevent interaction with the button */
+}
+
+hr.lost-page {
+  border: 0;
+  border-top: 2px solid #2d3c25;
+  margin: 20px auto;
+  width: 97%;
+}
+
+/*//////////////// BITTERSWEET PAGE ///////////////////*/
+
+h2.bittersweet-page {
+  margin: 0;
+}
+
+h2.bittersweet-page {
+  color: #3E0659;
+}
+
+h3.bittersweet-page {
+  color: #3E0659;
+}
+
+body.bittersweet-page header {
+  background-color: #7f75c7;
+}
+
+body.bittersweet-page footer {
+  background-color: #7f75c7;
+}
+
+nav.bittersweet-page a:hover {
+  background-color: #7166c0;
+}
+
+nav.bittersweet-page a {
+  text-decoration: none;
+  color: #2b0340;
+  padding: 0.5em 1em;
+  margin: 0 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+body.bittersweet-page {
+  background-color: #8D85C8;
+  color: #3a0457;
+}
+
+h1.bittersweet-page {
+  color: #3a0457;
+}
+
+/* Image Styling for Bittersweet Page */
+img.bittersweet-page {
+  padding: 1em;
+  max-width: 100%;
+  height: auto;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  img.bittersweet-page {
+    max-width: 40%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  img.bittersweet-page {
+    max-width: 100%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+/* Carousel Styles */
+.carousel-container {
+  position: relative;
+  width: 60%;
+  max-width: 600px;
+  margin: 1em auto; /* Center carousel horizontally */
+  overflow: hidden; /* Hide overflow for smooth transitions */
+  display: block;
+  border-radius: 5px;
+  border: 2px solid #3a0457;
+}
+
+body.bittersweet-page .carousel-container {
+  border: 2px solid #3a0457; /* Set a different border color for bittersweet-page */
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+ /* Smooth transition for the sliding effect */
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 0.3em;
+  cursor: pointer;
+  font-size: 2em;
+  z-index: 10;
+  border-radius: 25px;
+}
+
+.prev-btn {
+  left: 5px;
+}
+
+.next-btn {
+  right: 5px;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    width: 90%;
+  }
+}
+
+/* Carousel Button Disabled State */
+button[disabled] {
+  visibility: hidden; /* Hide the disabled button */
+  pointer-events: none; /* Prevent interaction with the button */
+}
+
+hr.bittersweet-page {
+  border: 0;
+  border-top: 2px solid #3a0457;
+  margin: 20px auto;
+  width: 97%;
+}
+
+/* Image Styling for Album Names */
+img.bittersweetalbum-name {
+  padding: 0em;
+  max-width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  img.bittersweetalbum-name {
+    max-width: 20%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  img.bittersweetalbum-name {
+    max-width: 60%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+/*//////////////// LOSER IN LOVE PAGE ///////////////////*/
+
+h2.loserinlove-page {
+  margin: 0;
+}
+
+h2.loserinlove-page {
+  color: #8f0166;
+}
+
+h3.loserinlove-page {
+  color: #8f0166;
+}
+
+h1.loserinlove-page {
+  color: #8f0166;
+}
+
+body.loserinlove-page header {
+  background-color: #e39ad1;
+}
+
+body.loserinlove-page footer {
+  background-color: #e39ad1;
+}
+
+nav.loserinlove-page a:hover {
+  background-color: #df87c9;
+}
+
+nav.loserinlove-page a {
+  text-decoration: none;
+  color: #8f0166;
+  padding: 0.5em 1em;
+  margin: 0 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+body.loserinlove-page {
+  background-color: #EEB7E1;
+  color: #8f0166;
+}
+
+/* Image Styling for Loser In Love Page */
+img.loserinlove-page {
+  padding: 1em;
+  max-width: 100%;
+  height: auto;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  img.loserinlove-page {
+    max-width: 40%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  img.loserinlove-page {
+    max-width: 100%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+/* Carousel Styles */
+.carousel-container {
+  position: relative;
+  width: 60%;
+  max-width: 600px;
+  margin: 1em auto; /* Center carousel horizontally */
+  overflow: hidden; /* Hide overflow for smooth transitions */
+  display: block;
+  border-radius: 5px;
+  border: 2px solid #8f0166;
+}
+
+body.loserinlove-page .carousel-container {
+  border: 2px solid #8f0166; /* Set a different border color for loserinlove-page */
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+ /* Smooth transition for the sliding effect */
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 0.3em;
+  cursor: pointer;
+  font-size: 2em;
+  z-index: 10;
+  border-radius: 25px;
+}
+
+.prev-btn {
+  left: 5px;
+}
+
+.next-btn {
+  right: 5px;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    width: 90%;
+  }
+}
+
+/* Carousel Button Disabled State */
+button[disabled] {
+  visibility: hidden; /* Hide the disabled button */
+  pointer-events: none; /* Prevent interaction with the button */
+}
+
+hr.loserinlove-page {
+  border: 0;
+  border-top: 2px solid #8f0166;
+  margin: 20px auto;
+  width: 97%;
+}
+
+/* Image Styling for Album Names */
+img.loserinlovealbum-name {
+  padding: 0em;
+  max-width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  img.loserinlovealbum-name {
+    max-width: 20%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  img.loserinlovealbum-name {
+    max-width: 60%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+/*//////////////// REPUTATION CROOMFS PAGE ///////////////////*/
+
+h2.reputationcroomfs-page {
+  margin: 0;
+}
+
+h2.reputationcroomfs-page {
+  color: #000000;
+}
+
+h3.reputationcroomfs-page {
+  color: #000000;
+}
+
+body.reputationcroomfs-page header {
+  background-color: #c2c2c2;
+}
+
+body.reputationcroomfs-page footer {
+  background-color: #c2c2c2;
+}
+
+nav.reputationcroomfs-page a:hover {
+  background-color: #afafaf;
+}
+
+nav.reputationcroomfs-page a {
+  text-decoration: none;
+  color: #000000;
+  padding: 0.5em 1em;
+  margin: 0 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+body.reputationcroomfs-page {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Image Styling for Loser In Love Page */
+img.reputationcroomfs-page {
+  padding: 1em;
+  max-width: 100%;
+  height: auto;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  img.reputationcroomfs-page {
+    max-width: 40%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  img.reputationcroomfs-page {
+    max-width: 100%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+/* Carousel Styles */
+.carousel-container {
+  position: relative;
+  width: 60%;
+  max-width: 600px;
+  margin: 1em auto; /* Center carousel horizontally */
+  overflow: hidden; /* Hide overflow for smooth transitions */
+  display: block;
+  border-radius: 5px;
+  border: 2px solid #000000;
+}
+
+body.reputationcroomfs-page .carousel-container {
+  border: 2px solid #000000; /* Set a different border color for loserinlove-page */
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+ /* Smooth transition for the sliding effect */
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 0.3em;
+  cursor: pointer;
+  font-size: 2em;
+  z-index: 10;
+  border-radius: 25px;
+}
+
+.prev-btn {
+  left: 5px;
+}
+
+.next-btn {
+  right: 5px;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    width: 90%;
+  }
+}
+
+/* Carousel Button Disabled State */
+button[disabled] {
+  visibility: hidden; /* Hide the disabled button */
+  pointer-events: none; /* Prevent interaction with the button */
+}
+
+hr.reputationcroomfs-page {
+  border: 0;
+  border-top: 2px solid #000000;
+  margin: 20px auto;
+  width: 97%;
+}
+
+/* Image Styling for Album Names */
+img.reputationcroomfsalbum-name {
+  padding: 0em;
+  max-width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  img.reputationcroomfsalbum-name {
+    max-width: 20%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  img.reputationcroomfsalbum-name {
+    max-width: 60%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
