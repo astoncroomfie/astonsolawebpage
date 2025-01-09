@@ -909,3 +909,175 @@ img.reputationcroomfsalbum-name {
     display: block;
   }
 }
+
+/*//////////////// HOT N' SPICY PAGE ///////////////////*/
+
+h2.hotnspicy-page {
+  margin: 0;
+}
+
+h2.hotnspicy-page {
+  color: #680B0A;
+}
+
+h3.hotnspicy-page {
+  color: #680B0A;
+}
+
+h1.hotnspicy-page {
+  color: #560a09;
+}
+
+body.hotnspicy-page header {
+  background-color: #a54540;
+}
+
+body.hotnspicy-page footer {
+  background-color: #a54540;
+}
+
+nav.hotnspicy-page a:hover {
+  background-color: #9c3c37;
+}
+
+nav.hotnspicy-page a {
+  text-decoration: none;
+  color: #560a09;
+  padding: 0.5em 1em;
+  margin: 0 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+body.hotnspicy-page {
+  background-color: #c46a65;
+  color: #680B0A;
+}
+
+/* Image Styling for Hot n' Spicy Page */
+img.hotnspicy-page {
+  padding: 1em;
+  max-width: 100%;
+  height: auto;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  img.hotnspicy-page {
+    max-width: 40%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  img.hotnspicy-page {
+    max-width: 100%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+/* Carousel Styles */
+.carousel-container {
+  position: relative;
+  width: 60%;
+  max-width: 600px;
+  margin: 1em auto; /* Center carousel horizontally */
+  overflow: hidden; /* Hide overflow for smooth transitions */
+  display: block;
+  border-radius: 5px;
+  border: 2px solid #680B0A;
+}
+
+body.hotnspicy-page .carousel-container {
+  border: 2px solid #680B0A; /* Set a different border color for hotnspicy-page */
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+ /* Smooth transition for the sliding effect */
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 0.3em;
+  cursor: pointer;
+  font-size: 2em;
+  z-index: 10;
+  border-radius: 25px;
+}
+
+.prev-btn {
+  left: 5px;
+}
+
+.next-btn {
+  right: 5px;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    width: 90%;
+  }
+}
+
+/* Carousel Button Disabled State */
+button[disabled] {
+  visibility: hidden; /* Hide the disabled button */
+  pointer-events: none; /* Prevent interaction with the button */
+}
+
+hr.hotnspicy-page {
+  border: 0;
+  border-top: 2px solid #680B0A;
+  margin: 20px auto;
+  width: 97%;
+}
+
+/* Image Styling for Album Names */
+img.hotnspicyalbum-name {
+  padding: 0em;
+  max-width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  img.hotnspicyalbum-name {
+    max-width: 20%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  img.hotnspicyalbum-name {
+    max-width: 60%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
