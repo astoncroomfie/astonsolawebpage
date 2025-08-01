@@ -1,10 +1,12 @@
 /*////////////////// GENERAL SETTINGS ////////////////////*/
+/*
 *{
   -moz-filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
-  filter: gray; /* IE6-9 */
+  filter: gray;
   filter: grayscale(100%);
 }
+*/
 
 * {
   margin: 0;
