@@ -1090,3 +1090,149 @@ img.hotnspicyalbum-name {
     display: block;
   }
 }
+
+/*//////////////////// ANGEL PAGE ////////////////////////*/
+
+h2.angel-page {
+  margin: 0;
+}
+
+h1.angel-page {
+  color: #1f212d;
+}
+
+h2.angel-page {
+  color: #1f212d;
+}
+
+h3.angel-page {
+  color: #1f212d;
+}
+
+body.angel-page header {
+  background-color: #647598;
+}
+
+body.angel-page footer {
+  background-color: #647598;
+  color: #1f212d;
+}
+
+nav.angel-page a:hover {
+  background-color: #536485;
+}
+
+nav.angel-page a {
+  text-decoration: none;
+  color: #1f212d;
+  padding: 0.5em 1em;
+  margin: 0 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+body.angel-page {
+  background-color: #CADBEF;
+  color: #212c1b;
+}
+
+/* Image Styling for Angel Page */
+img.angel-page {
+  padding: 1em;
+  max-width: 100%;
+  height: auto;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  img.angel-page {
+    max-width: 40%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  img.angel-page {
+    max-width: 100%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+}
+
+/* Carousel Styles */
+.carousel-container {
+  position: relative;
+  width: 60%;
+  max-width: 600px;
+  margin: 1em auto; /* Center carousel horizontally */
+  overflow: hidden; /* Hide overflow for smooth transitions */
+  display: block;
+  border-radius: 5px;
+  border: 2px solid #1f212d;
+}
+
+body.angel-page .carousel-container {
+  border: 2px solid #1f212d; /* Keep the border color for angel-page */
+}
+
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+ /* Smooth transition for the sliding effect */
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgb(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 0.3em;
+  cursor: pointer;
+  font-size: 2em;
+  z-index: 10;
+  border-radius: 25px;
+}
+
+.prev-btn {
+  left: 5px;
+}
+
+.next-btn {
+  right: 5px;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    width: 90%;
+  }
+}
+
+/* Carousel Button Disabled State */
+button[disabled] {
+  visibility: hidden; /* Hide the disabled button */
+  pointer-events: none; /* Prevent interaction with the button */
+}
+
+hr.angel-page {
+  border: 0;
+  border-top: 2px solid #1f212d;
+  margin: 20px auto;
+  width: 97%;
+}
